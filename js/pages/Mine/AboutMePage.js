@@ -21,12 +21,12 @@ import {
 
 
 const FLAG = {
-    REPOSITORY: '开源项目',
+    REPOSITORY: 'Open source projec',
     BLOG: {
-        name: '技术博客',
+        name: 'Technology Blog',
         items: {
             PERSONAL_BLOG: {
-                title: '个人博客',
+                title: 'Personal blog',
                 url: 'http://jiapenghui.com',
             },
             CSDN: {
@@ -34,7 +34,7 @@ const FLAG = {
                 url: 'http://blog.csdn.net/fengyuzhengfan',
             },
             JIANSHU: {
-                title: '简书',
+                title: 'Jane book',
                 url: 'http://www.jianshu.com/users/ca3943a4172a/latest_articles',
             },
             GITHUB: {
@@ -44,7 +44,7 @@ const FLAG = {
         }
     },
     CONTACT: {
-        name: '联系方式',
+        name: 'Contact',
         items: {
             QQ: {
                 title: 'QQ',
@@ -57,14 +57,14 @@ const FLAG = {
         }
     },
     QQ: {
-        name: '技术交流群',
+        name: 'Technology exchange group',
         items: {
             MD: {
-                title: '移动开发者技术分享群',
+                title: 'Mobile developer technology sharing group',
                 account: '335939197',
             },
             RN: {
-                title: 'React Native学习交流群',
+                title: 'React Native Learning Exchange Group',
                 account: '165774887',
             }
         },
@@ -127,7 +127,7 @@ export default class AboutPage extends Component{
 
             case FLAG.CONTACT.items.QQ:
                 Clipboard.setString(tab.account);
-                this.toast.show('QQ:' + tab.account + '已复制到剪贴板');
+                this.toast.show('QQ:' + tab.account + 'copied to clipboard');
                 break;
 
             case FLAG.CONTACT.items.Email:
@@ -146,7 +146,7 @@ export default class AboutPage extends Component{
             case FLAG.QQ.items.MD:
             case FLAG.QQ.items.RN:
                 Clipboard.setString(tab.account);
-                this.toast.show('群号:' + tab.account + '已复制到剪切板。');
+                this.toast.show('Group number:' + tab.account + 'has been copied to the clipboard.');
                 break;
 
             case FLAG.BLOG.items.GITHUB:

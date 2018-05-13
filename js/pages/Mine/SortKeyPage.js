@@ -111,9 +111,9 @@ export default class NewPage extends Component {
 
     render(){
 
-        let title = this.props.flag === FLAG_LANGUAGE.flag_language?'语言排序':'标签排序';
+        let title = this.props.flag === FLAG_LANGUAGE.flag_language?'Language sort ':'tag sort';
         let rightButton = {
-            title: '保存',
+            title: 'Save',
             handler:()=>this.onSave(),
             tintColor:'white',
         };

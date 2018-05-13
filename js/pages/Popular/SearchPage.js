@@ -17,18 +17,18 @@ import ViewUtils from '../../util/ViewUtils'
 import GlobalStyle from '../../../res/styles/GlobalStyles'
 import RespositoryCell from '../../common/RespositoryCell'
 import Toast,{DURATION} from 'react-native-easy-toast'
- import FavoriteDao  from '../../dao/FavoriteDao'
- import Utils from '../../util/FavoriteUtils'
- import {FlAG_STORAGE} from '../../dao/RepositoryDao'
- import DetailPage from '../../common/RepositoryDetailPage'
+import FavoriteDao  from '../../dao/FavoriteDao'
+import Utils from '../../util/FavoriteUtils'
+import {FlAG_STORAGE} from '../../dao/RepositoryDao'
+import DetailPage from '../../common/RepositoryDetailPage'
 import ProjectModel from '../../model/ProjectModel'
 import ActionUtils from '../../util/ActionUtils'
-import LanguageDao,{FLAG_LANGUAGE}from '../../dao/LanguageDao'
-import RequestUtils from '../../util/RequestUtls'
-import {FLAG_TAB} from '../Entry/HomePage'
+import LanguageDao,{FLAG_LANGUAGE} from '../../dao/LanguageDao';
+import RequestUtils from '../../util/RequestUtls';
+import {FLAG_TAB} from '../Entry/HomePage';
 
-const API_URL = 'https://api.github.com/search/repositories?q=' 
-const QUERY_STR = '&sort=starts'
+const API_URL = 'https://api.github.com/search/repositories?q=';
+const QUERY_STR = '&sort=starts';
 import {ACTION_HOME} from '../Entry/HomePage'
 
 export default class SearchPage extends Component {
@@ -43,7 +43,7 @@ export default class SearchPage extends Component {
                 theme:this.props.theme,
                 favoriteKeys:[],
                 isLoading:false,
-                rightButtonText:'搜索',
+                rightButtonText:'Search',
                 showBottomButton:false,
                 dataSource:new ListView.DataSource({rowHasChanged:(r1,r2)=>r1!==r2}),
 
@@ -77,13 +77,13 @@ export default class SearchPage extends Component {
     }
 
     onRightButtonClick(){
-        if (this.state.rightButtonText ==='搜索'){
-            this.updateState({rightButtonText:'取消'})
+        if (this.state.rightButtonText ==='Search'){
+            this.updateState({rightButtonText:'Cancel'})
             this.loadData();
 
-        }else if (this.state.rightButtonText ==='取消'){
+        }else if (this.state.rightButtonText ==='Cancel'){
             this.updateState({
-                rightButtonText:'搜索',
+                rightButtonText:'Search',
                 isLoading:false
             })
 
@@ -130,15 +130,15 @@ export default class SearchPage extends Component {
         </View>
     }
 
-    getFetchUrl(key){ 
-        return API_URL + key + QUERY_STR; 
+    getFetchUrl(key){
+        return API_URL + key + QUERY_STR;
     }
 
     //保存key
     saveKey(){
         let key = this.inputKey;
         if(this.checkKeyIsExsist(this.keys,key)){
-            this.toast.show(key + '已经存在',DURATION.LENGTH_LONG);
+            this.toast.show(key + 'already exists',DURATION.LENGTH_LONG);
         }else {
             key = {
                 "path":key,
@@ -148,7 +148,7 @@ export default class SearchPage extends Component {
             this.keys.unshift(key);
             this.languageDao.save(this.keys);
             this.isKeyChanged = true;
-            this.toast.show(key.name + '保存成功',DURATION.LENGTH_LONG);
+            this.toast.show(key.name + 'saved successfully',DURATION.LENGTH_LONG);
         }
     }
 
@@ -175,9 +175,9 @@ export default class SearchPage extends Component {
             projectModels.push(new ProjectModel(items[i],Utils.checkFavorite(items[i],this.state.favoriteKeys)));
         }
         this.updateState({
-            isLoading:false,
-            dataSource:this.getDataSource(projectModels),
-            rightButtonText:'搜索'
+            isLoading : false,
+            dataSource : this.getDataSource(projectModels),
+            rightButtonText:'Search'
         })
     }
 
@@ -189,15 +189,15 @@ export default class SearchPage extends Component {
         this.updateState({ 
             isLoading:true,
             showBottomButton: false,
-        })  
+        })
 
         this.cancelRequest = RequestUtils(fetch(this.getFetchUrl(this.inputKey) ));
         this.cancelRequest.promise
             .then(response=>response.json())
             .then(responseData=>{ 
                 if(!this||!responseData||!responseData.items||responseData.items.length===0){ 
-                    this.toast.show(this.inputKey + '什么都没找到',DURATION.LENGTH_LONG); 
-                    this.updateState({isLoading:false,rightButtonText:'搜搜'}) 
+                    this.toast.show(this.inputKey + 'did not find anything',DURATION.LENGTH_LONG); 
+                    this.updateState({isLoading:false,rightButtonText:'so so'}) 
                 } 
                 this.items = responseData.items;
                 this.getFavoriteKeys();
@@ -206,9 +206,9 @@ export default class SearchPage extends Component {
                 }
             }) 
             .catch(e=>{ 
-                this.updateState({ 
+                this.updateState({
                     isLoading:false, 
-                    rightButtonText:'搜索' 
+                    rightButtonText:'Search' 
                 }) 
             }) 
     } 
@@ -263,7 +263,7 @@ export default class SearchPage extends Component {
             onPress={()=>this.saveKey()}
         >
                 <View style={{justifyContent:'center'}}>
-                    <Text style={styles.bottomButtonTitleStyle}>添加标签</Text>
+                    <Text style={styles.bottomButtonTitleStyle}>Add tag</Text>
                 </View>
             </TouchableOpacity>:null;
 

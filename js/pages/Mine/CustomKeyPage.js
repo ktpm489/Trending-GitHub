@@ -107,13 +107,13 @@ export default class NewPage extends Component {
 
         }else{
             Alert.alert(
-                '提示',
-                '要保存修改吗？',
+                'prompt',
+                'Do you want to save the changes? ',
                 [
-                  {text:'不保存',onPress:()=>{
+                  {text:'Cancel',onPress:()=>{
                       this.props.navigator.pop();
                   },style:'cancel'},
-                  {text:'保存',onPress:()=>{this.onSave()}}
+                  {text:'OK',onPress:()=>{this.onSave()}}
                   ]
             )
         }
@@ -180,9 +180,9 @@ export default class NewPage extends Component {
     }
 
     render(){
-        let title = this.isRemoveKeyPage?'标签移除':'自定义标签'
-        title=this.props.flag === FLAG_LANGUAGE.flag_language?'自定义语言':title;
-        let rightButtonTitle = this.isRemoveKeyPage?'移除':'保存'
+        let title = this.isRemoveKeyPage? 'Label removal': 'Custom label'
+        title=this.props.flag === FLAG_LANGUAGE.flag_language?'Custom language':title;
+        let rightButtonTitle = this.isRemoveKeyPage? 'Remove': 'Save'
         let rightButton=<TouchableOpacity
             onPress={()=>this.onSave()}
         >

@@ -86,7 +86,7 @@ export default class PopularPage extends BaseComponent {
         return (
             <View style={styles.container}>
                 <NavigationBar
-                    title={'最热标签'}
+                    title={'Hot'}
                     style={this.state.theme.styles.navBar}
                     statusBar={{backgroundColor:this.state.theme.themeColor}}
                     rightButton={this.renderNavRightButton()}

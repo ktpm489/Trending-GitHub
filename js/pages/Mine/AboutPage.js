@@ -58,7 +58,7 @@ export default class AboutPage extends Component{
             case MORE_MENU.Website:
                 TargetComponent = WebViewPage;
                 params.url = 'http://coding.imooc.com/class/89.html';
-                params.title = '慕课网实战：GitHub客户端';
+                params.title = 'Music Net Combat: GitHub Client';
                 params.theme = this.state.theme;
                 break;
 

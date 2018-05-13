@@ -34,9 +34,9 @@ import BaseComponent from '../../base/BaseCommon'
 import CustomThemePage from '../Mine/CustomThemePage'
 
 var timeSpanTextArr = [
-    new TimeSpan('今 天','since=daily'),
-    new TimeSpan('本 周','since=weekly'),
-    new TimeSpan('本 月','since=monthly')];
+    new TimeSpan('Daily','since=daily'),
+    new TimeSpan('Weekly','since=weekly'),
+    new TimeSpan('Monthly','since=monthly')];
 
 
 import LanguageDao ,{FLAG_LANGUAGE} from '../../dao/LanguageDao'
@@ -78,7 +78,7 @@ export default class TrendingPage extends BaseComponent {
                 onPress={()=>this.showPopover()}
             >
                 <View style={{flexDirection:'row',alignItems:'center'}}>
-                    <Text style={{fontSize:18,color:'white',fontWeight:'400'}}>语言趋势  {this.state.timeSpan.showText}</Text>
+                    <Text style={{fontSize:18,color:'white',fontWeight:'400'}}>Language Trend  {this.state.timeSpan.showText}</Text>
                     <Image
                         style={{width:14,height:14,marginLeft:6}}
                         source={require('../../../res/images/ic_spinner_triangle.png')}/>

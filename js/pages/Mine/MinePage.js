@@ -108,7 +108,7 @@ export default class MinePage extends BaseComponent {
         return <View style={GlobalStyles.listViewContainerStyle}>
             {/*导航栏*/}
             <NavigationBar
-                title={'我的'}
+                title={'Settings'}
                 style={this.state.theme.styles.navBar}
                 statusBar={{backgroundColor:this.state.theme.themeColor}}
             />
@@ -125,7 +125,7 @@ export default class MinePage extends BaseComponent {
                             <Image source={require('../../../res/images/ic_trending.png')}
                                    style={[{width:40,height:40,marginRight:10},this.state.theme.styles.tabBarSelectedIcon]}
                             />
-                            <Text>GitHub Popular 项目信息</Text>
+                            <Text>GitHub Popular Project Information</Text>
                         </View>
                         <Image source={require('../../../res/images/ic_tiaozhuan.png')}
                             style={[{height:22,width:22},this.state.theme.styles.tabBarSelectedIcon]}
@@ -136,37 +136,37 @@ export default class MinePage extends BaseComponent {
                 <View style={GlobalStyles.cellBottomLineStyle}></View>
 
                 {/*=============趋势管理Section=============*/}
-                <Text style={styles.groupTitleStyle}>趋势管理</Text>
+                <Text style={styles.groupTitleStyle}>Trend Management</Text>
                 <View style={GlobalStyles.cellBottomLineStyle}></View>
                 {/*自定义语言*/}
-                {this.createSettingItem(MORE_MENU.Custom_Language,require('../../../res/images/ic_custom_language.png'),'自定义语言')}
+                {this.createSettingItem(MORE_MENU.Custom_Language,require('../../../res/images/ic_custom_language.png'),'Custom language')}
                 <View style={GlobalStyles.cellBottomLineStyle}></View>
 
 
                 {/*语言排序*/}
-                {this.createSettingItem(MORE_MENU.Sort_Language,require('../../../res/images/ic_swap_vert.png'),'语言排序')}
+                {this.createSettingItem(MORE_MENU.Sort_Language,require('../../../res/images/ic_swap_vert.png'),'Language Sort')}
                 <View style={GlobalStyles.cellBottomLineStyle}></View>
 
                 {/*=============标签管理Section=============*/}
-                <Text style={styles.groupTitleStyle}>标签管理</Text>
+                <Text style={styles.groupTitleStyle}>Management</Text>
 
                 <View style={GlobalStyles.cellBottomLineStyle}></View>
                 {/*自定义标签*/}
-                {this.createSettingItem(MORE_MENU.Custom_Key,require('../../../res/images/ic_custom_language.png'),'自定义标签')}
+                {this.createSettingItem(MORE_MENU.Custom_Key,require('../../../res/images/ic_custom_language.png'),'Custom Label')}
                 <View style={GlobalStyles.cellBottomLineStyle}></View>
                 {/*标签排序*/}
-                {this.createSettingItem(MORE_MENU.Sort_Key,require('../../../res/images/ic_swap_vert.png'),'标签排序')}
+                {this.createSettingItem(MORE_MENU.Sort_Key,require('../../../res/images/ic_swap_vert.png'),'Tag Sorting')}
                 <View style={GlobalStyles.cellBottomLineStyle}></View>
 
                 {/*标签移除*/}
-                {this.createSettingItem(MORE_MENU.Remove_Key,require('../../../res/images/ic_remove.png'),'标签移除')}
+                {this.createSettingItem(MORE_MENU.Remove_Key,require('../../../res/images/ic_remove.png'),'Label Removal')}
                 <View style={GlobalStyles.cellBottomLineStyle}></View>
 
                 {/*=============设置Section=============*/}
-                <Text style={styles.groupTitleStyle}>设置</Text>
+                <Text style={styles.groupTitleStyle}>Settings</Text>
                 {/*自定义主题*/}
                 <View style={GlobalStyles.cellBottomLineStyle}></View>
-                {this.createSettingItem(MORE_MENU.Custom_Theme,require('../../../res/images/ic_view_quilt.png'),'自定义主题')}
+                {this.createSettingItem(MORE_MENU.Custom_Theme,require('../../../res/images/ic_view_quilt.png'),'Custom Theme')}
                 <View style={GlobalStyles.cellBottomLineStyle}></View>
 
                 {/*展示自定义主题页面*/}
@@ -191,7 +191,7 @@ const styles = StyleSheet.create({
     groupTitleStyle:{
         marginLeft:10,
         marginTop:15,
-        marginBottom:6,
+        marginBottom:8,
         color:'gray'
     }
 });

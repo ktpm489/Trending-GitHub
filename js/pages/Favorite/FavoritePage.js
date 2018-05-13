@@ -83,15 +83,15 @@ export default class FavoritePage extends BaseComponent {
                 renderTabBar={()=><ScrollableTabBar/>}
             >
 
-                <FavoriteTabPage  {...this.props} tabLabel='最热' flag={FlAG_STORAGE.flag_popular}/>
-                <FavoriteTabPage  {...this.props} tabLabel='趋势' flag={FlAG_STORAGE.flag_trending}/>
+                <FavoriteTabPage  {...this.props} tabLabel='Hot' flag={FlAG_STORAGE.flag_popular}/>
+                <FavoriteTabPage  {...this.props} tabLabel='Trending' flag={FlAG_STORAGE.flag_trending}/>
 
             </ScrollableTableView>;
 
         return (
             <View style={styles.container}>
                 <NavigationBar
-                    title={'收藏'}
+                    title={'Collection'}
                     style={this.state.theme.styles.navBar}
                     statusBar={{backgroundColor:this.state.theme.themeColor}}
                     rightButton={this.renderNavRightButton()}
