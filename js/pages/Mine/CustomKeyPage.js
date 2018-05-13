@@ -180,8 +180,8 @@ export default class NewPage extends Component {
     }
 
     render(){
-        let title = this.isRemoveKeyPage? 'Label removal': 'Custom label'
-        title=this.props.flag === FLAG_LANGUAGE.flag_language?'Custom language':title;
+        let title = this.isRemoveKeyPage? 'Label removal': 'Custom Label'
+        title=this.props.flag === FLAG_LANGUAGE.flag_language?'Custom Language':title;
         let rightButtonTitle = this.isRemoveKeyPage? 'Remove': 'Save'
         let rightButton=<TouchableOpacity
             onPress={()=>this.onSave()}

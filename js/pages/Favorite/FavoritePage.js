@@ -94,11 +94,11 @@ export default class FavoritePage extends BaseComponent {
                     title={'Collection'}
                     style={this.state.theme.styles.navBar}
                     statusBar={{backgroundColor:this.state.theme.themeColor}}
-                    rightButton={this.renderNavRightButton()}
+                  //  rightButton={this.renderNavRightButton()}
                 />
                 {content}
-                {this.renderMoreView()}
-                {this.renderCustomTheme()}
+                {/* {this.renderMoreView()}
+                {this.renderCustomTheme()} */}
 
             </View>
         );

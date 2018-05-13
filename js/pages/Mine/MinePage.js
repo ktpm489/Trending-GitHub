@@ -116,7 +116,7 @@ export default class MinePage extends BaseComponent {
             <ScrollView>
 
                 {/*=============项目信息Section=============*/}
-                <TouchableHighlight
+                {/* <TouchableHighlight
                     underlayColor= 'transparent'
                     onPress={()=>this.onClick(MORE_MENU.About)}
                 >
@@ -131,7 +131,7 @@ export default class MinePage extends BaseComponent {
                             style={[{height:22,width:22},this.state.theme.styles.tabBarSelectedIcon]}
                         />
                     </View>
-                </TouchableHighlight>
+                </TouchableHighlight> */}
                 {/*分割线*/}
                 <View style={GlobalStyles.cellBottomLineStyle}></View>
 
@@ -139,13 +139,13 @@ export default class MinePage extends BaseComponent {
                 <Text style={styles.groupTitleStyle}>Trend Management</Text>
                 <View style={GlobalStyles.cellBottomLineStyle}></View>
                 {/*自定义语言*/}
-                {this.createSettingItem(MORE_MENU.Custom_Language,require('../../../res/images/ic_custom_language.png'),'Custom language')}
+                {this.createSettingItem(MORE_MENU.Custom_Language,require('../../../res/images/ic_custom_language.png'),'Custom Language')}
                 <View style={GlobalStyles.cellBottomLineStyle}></View>
 
 
                 {/*语言排序*/}
-                {this.createSettingItem(MORE_MENU.Sort_Language,require('../../../res/images/ic_swap_vert.png'),'Language Sort')}
-                <View style={GlobalStyles.cellBottomLineStyle}></View>
+                {/* {this.createSettingItem(MORE_MENU.Sort_Language,require('../../../res/images/ic_swap_vert.png'),'Language Sort')}
+                <View style={GlobalStyles.cellBottomLineStyle}></View> */}
 
                 {/*=============标签管理Section=============*/}
                 <Text style={styles.groupTitleStyle}>Management</Text>
@@ -155,8 +155,8 @@ export default class MinePage extends BaseComponent {
                 {this.createSettingItem(MORE_MENU.Custom_Key,require('../../../res/images/ic_custom_language.png'),'Custom Label')}
                 <View style={GlobalStyles.cellBottomLineStyle}></View>
                 {/*标签排序*/}
-                {this.createSettingItem(MORE_MENU.Sort_Key,require('../../../res/images/ic_swap_vert.png'),'Tag Sorting')}
-                <View style={GlobalStyles.cellBottomLineStyle}></View>
+                {/* {this.createSettingItem(MORE_MENU.Sort_Key,require('../../../res/images/ic_swap_vert.png'),'Tag Sorting')}
+                <View style={GlobalStyles.cellBottomLineStyle}></View> */}
 
                 {/*标签移除*/}
                 {this.createSettingItem(MORE_MENU.Remove_Key,require('../../../res/images/ic_remove.png'),'Label Removal')}

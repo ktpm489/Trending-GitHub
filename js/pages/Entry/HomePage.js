@@ -106,7 +106,7 @@ export default class HomePage extends BaseComponent {
                     tabBarStyle={{opacity: 0.9,}}
                     sceneStyle={{paddingBottom: 0}}
                 >
-                    {this._renderTab(PopularPage, FLAG_TAB.flag_popularTab, 'Hottest', require('../../../res/images/ic_polular.png'))}
+                    {this._renderTab(PopularPage, FLAG_TAB.flag_popularTab, 'Hot', require('../../../res/images/ic_polular.png'))}
                     {this._renderTab(TrendingPage, FLAG_TAB.flag_trendingTab, 'Trend', require('../../../res/images/ic_trending.png'))}
                     {this._renderTab(FavoritePage, FLAG_TAB.flag_favoriteTab, 'Collection', require('../../../res/images/ic_favorite.png'))}
                     {this._renderTab(MinePage, FLAG_TAB.flag_myTab, 'Settings', require('../../../res/images/ic_my.png'))}
