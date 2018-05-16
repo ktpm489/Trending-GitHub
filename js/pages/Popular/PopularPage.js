@@ -332,7 +332,8 @@ class PopularTabPage extends Component{
 const styles = StyleSheet.create({
 
     container: {
-        flex: 1,
+       // flex: 1,
+        flex: 0.93,
         backgroundColor: 'white',
     },
     tips:{

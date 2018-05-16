@@ -27,8 +27,7 @@ import LanguageDao,{FLAG_LANGUAGE} from '../../dao/LanguageDao';
 import RequestUtils from '../../util/RequestUtls';
 import {FLAG_TAB} from '../Entry/HomePage';
 
-const API_URL = 'https://api.github.com/search/repositories?q='
-// TODO pagination page &per_page=100&page=2
+const API_URL = 'https://api.github.com/search/repositories?q=';
 const QUERY_STR = '&sort=stars&order=desc&per_page=100';
 import {ACTION_HOME} from '../Entry/HomePage'
 
@@ -125,7 +124,7 @@ export default class SearchPage extends Component {
 
         </TouchableOpacity>
         return <View style={[styles.navBarStyle,{  backgroundColor:this.state.theme.themeColor}]}>
-            {backButton}
+            {/* {backButton} */}
             {inputView}
             {rightButton}
         </View>
@@ -254,7 +253,7 @@ export default class SearchPage extends Component {
                 animating={this.state.isLoading}
             />:null;
 
-        let resultView = <View style={{flex:1, marginBottom : 50}}>
+        let resultView = <View style={{flex:1}}>
             {listView}
             {indicatorView}
         </View>
@@ -272,7 +271,7 @@ export default class SearchPage extends Component {
             {statusBar}
             {this.renderNavigationBar()}
             {resultView}
-            {bottomButton}
+            {/* {bottomButton} */}
             <Toast ref={toast=>this.toast=toast}/>
         </View>
     }
@@ -282,7 +281,7 @@ export default class SearchPage extends Component {
 const styles = StyleSheet.create({
 
     container: {
-      flex: 1,
+      flex: 0.93,
         backgroundColor: 'white',
          alignItems:'stretch', 
         justifyContent: 'center',
@@ -342,8 +341,7 @@ const styles = StyleSheet.create({
         left:10,
         right:10,
        // top:GlobalStyle.window_height - 40 - 20,
-      bottom : 0,
-      marginBottom : 2,
+       bottom : -10,
         borderRadius:4
     }
 });

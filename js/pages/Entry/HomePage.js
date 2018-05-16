@@ -14,7 +14,8 @@ import PopularPage from '../Popular/PopularPage'
 import TrendingPage from '../Trending/TrendingPage'
 import FavoritePage from '../Favorite/FavoritePage'
 import MinePage from '../Mine/MinePage'
-import SearchPage from '../Search/SearchPage'
+import SearchPage from '../Popular/SearchPageCustom'
+// import SearchPage from '../Search/SearchPage'
 import BaseComponent from '../../base/BaseCommon'
 import {DURATION} from 'react-native-easy-toast'
 
@@ -104,7 +105,7 @@ export default class HomePage extends BaseComponent {
         return (
             <View style={styles.container}>
                 <TabNavigator
-                    tabBarStyle={{opacity: 0.9,}}
+                    tabBarStyle={{ opacity: 0.9, overflow: 'hidden'}}
                     sceneStyle={{paddingBottom: 0}}
                 >
                     {this._renderTab(PopularPage, FLAG_TAB.flag_popularTab, 'Hot', require('../../../res/images/ic_polular.png'))}
