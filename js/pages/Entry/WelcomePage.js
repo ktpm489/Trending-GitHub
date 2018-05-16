@@ -7,6 +7,7 @@ import {
     StyleSheet,
     View,
     Text,
+    Image,
     InteractionManager,
     Platform,
 } from 'react-native'
@@ -43,7 +44,8 @@ export default class WelcomePage extends Component {
     render() {
         return (
             <View style={styles.container}>
-                {/*<Image style={{flex:1,width:null}} resizeMode='repeat' source={require('../../res/images/LaunchScreen.png')}/>*/}
+            {/**TODO : change image background*/}
+                <Image style={{ flex: 1, width: null }} resizeMode='repeat' source={require('../../../res/images/ic_polular.png')}/>
             </View>
         );
     }

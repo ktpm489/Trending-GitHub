@@ -14,7 +14,7 @@ import PopularPage from '../Popular/PopularPage'
 import TrendingPage from '../Trending/TrendingPage'
 import FavoritePage from '../Favorite/FavoritePage'
 import MinePage from '../Mine/MinePage'
-
+import SearchPage from '../Search/SearchPage'
 import BaseComponent from '../../base/BaseCommon'
 import {DURATION} from 'react-native-easy-toast'
 
@@ -23,6 +23,7 @@ export const ACTION_HOME = {A_SHOW_TOAST:'showToast',A_RESTART:'restart',A_THEME
 export const FLAG_TAB = {
     flag_popularTab: 'flag_popularTab',
     flag_trendingTab: 'flag_trendingTab',
+    flag_searchTab: 'flag_searchTab',
     flag_favoriteTab: 'flag_favoriteTab',
     flag_myTab: 'flag_myTab'
 }
@@ -108,6 +109,7 @@ export default class HomePage extends BaseComponent {
                 >
                     {this._renderTab(PopularPage, FLAG_TAB.flag_popularTab, 'Hot', require('../../../res/images/ic_polular.png'))}
                     {this._renderTab(TrendingPage, FLAG_TAB.flag_trendingTab, 'Trend', require('../../../res/images/ic_trending.png'))}
+                    {this._renderTab(SearchPage, FLAG_TAB.flag_searchTab, 'Search', require('../../../res/images/ic_trending.png'))}
                     {this._renderTab(FavoritePage, FLAG_TAB.flag_favoriteTab, 'Collection', require('../../../res/images/ic_favorite.png'))}
                     {this._renderTab(MinePage, FLAG_TAB.flag_myTab, 'Settings', require('../../../res/images/ic_my.png'))}
                 </TabNavigator>
