@@ -28,7 +28,8 @@ import RequestUtils from '../../util/RequestUtls';
 import {FLAG_TAB} from '../Entry/HomePage';
 
 const API_URL = 'https://api.github.com/search/repositories?q=';
-const QUERY_STR = '&sort=stars&order=desc&per_page=100';
+// TODO pagination page &per_page=100&page=2
+const QUERY_STR = '&sort=stars&order=desc&per_page=100&page=';
 import {ACTION_HOME} from '../Entry/HomePage'
 
 export default class SearchPage extends Component {
@@ -45,6 +46,10 @@ export default class SearchPage extends Component {
                 isLoading:false,
                 rightButtonText:'Search',
                 showBottomButton:false,
+                 page: 1,
+                seed: 1,
+                error: null,
+                refreshing: false,
                 dataSource:new ListView.DataSource({rowHasChanged:(r1,r2)=>r1!==r2}),
 
         }
@@ -53,12 +58,27 @@ export default class SearchPage extends Component {
     componentDidMount() {
         //读取所有的标签
         this.initKeys();
+        this.listener = DeviceEventEmitter.addListener('favoriteChanged_trending', () => {
+            this.isFavoriteChanged = true;
+        })
+    }
+    componentWillReceiveProps(nextProps) {
+       
+        if (nextProps !== this.state.theme) {
+
+            this.updateState({ theme: nextProps.theme })
+            this.getFavoriteKeys();
+
+        } 
     }
 
     componentWillUnmount() {
         if (this.isKeyChanged){
             DeviceEventEmitter.emit('ACTION_HOME',ACTION_HOME.A_RESTART,FLAG_TAB.flag_popularTab);
             // this.props.homeComponent.onReStart(FLAG_TAB.flag_popularTab);
+        }
+        if (this.listener) {
+            this.listener.remove();
         }
         this.cancelRequest && this.cancelRequest.cancel();
     }
@@ -79,12 +99,16 @@ export default class SearchPage extends Component {
     onRightButtonClick(){
         if (this.state.rightButtonText ==='Search'){
             this.updateState({rightButtonText:'Cancel'})
-            this.loadData();
+            this.setState({ page: 1}, () => {
+                this.loadData();
+            })
+            
 
         }else if (this.state.rightButtonText ==='Cancel'){
             this.updateState({
                 rightButtonText:'Search',
-                isLoading:false
+                isLoading:false,
+                page: 1
             })
 
             this.cancelRequest.cancel();
@@ -107,6 +131,8 @@ export default class SearchPage extends Component {
         let backButton = ViewUtils.getLeftButton(()=>this.onBackPress());
         let inputView = <TextInput
             ref = "input"
+            placeholder="Enter word to search"
+            placeholderTextColor="white"
             style={styles.textInputStyle}
             onChangeText={text=>this.inputKey=text}
         >
@@ -130,8 +156,9 @@ export default class SearchPage extends Component {
         </View>
     }
 
-    getFetchUrl(key){
-        return API_URL + key + QUERY_STR;
+    getFetchUrl = (key) => {
+        const { page } = this.state
+        return API_URL + key + QUERY_STR + page;
     }
 
     //保存key
@@ -185,21 +212,21 @@ export default class SearchPage extends Component {
         return this.state.dataSource.cloneWithRows(projectModels);
     }
 
-    loadData(){ 
+    loadData = () => { 
         this.updateState({ 
             isLoading:true,
             showBottomButton: false,
         })
-
-        this.cancelRequest = RequestUtils(fetch(this.getFetchUrl(this.inputKey) ));
+        // get current page
+        this.cancelRequest = RequestUtils(fetch(this.getFetchUrl(this.inputKey)));
         this.cancelRequest.promise
             .then(response=>response.json())
             .then(responseData=>{ 
                 if(!this||!responseData||!responseData.items||responseData.items.length===0){ 
                     this.toast.show(this.inputKey + 'did not find anything',DURATION.LENGTH_LONG); 
-                    this.updateState({isLoading:false,rightButtonText:'so so'}) 
+                    this.updateState({isLoading:false,rightButtonText:'Search'}) 
                 } 
-                this.items = responseData.items;
+                this.items = this.state.page === 1 ? responseData.items : [...this.items, ...responseData.items]
                 this.getFavoriteKeys();
                 if(!this.checkKeyIsExsist(this.keys,this.inputKey)){
                     this.updateState({showBottomButton:true})
@@ -233,6 +260,15 @@ export default class SearchPage extends Component {
             onSelect={()=>this.onSelectRepository(projectModel)}
             onFavorite={(item, isFavorite)=>ActionUtils.onFavorite(this.favoriteDao1, item, isFavorite)}/>
     }
+
+     handerLoadMore = () => {
+         this.setState({
+             page: this.state.page + 1
+         }, () => {
+             this.loadData()
+         })
+    }
+
     render(){
 
         let statusBar = null;
@@ -240,10 +276,13 @@ export default class SearchPage extends Component {
             statusBar = <View style={[styles.statusBarStyle,{backgroundColor: this.state.theme.themeColor}]}/>
         }
 
-        let listView = !this.state.isLoading? <ListView
+        let listView = !this.state.isLoading?
+         <ListView
             enableEmptySections={true}
             dataSource = {this.state.dataSource}
             renderRow = {projectModel=>this.renderRow(projectModel)}
+            onEndReached={this.handerLoadMore}
+            onEndReachedThreshold={50}
         />:null;
 
         let indicatorView = this.state.isLoading?

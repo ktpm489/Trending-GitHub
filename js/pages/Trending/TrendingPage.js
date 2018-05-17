@@ -78,7 +78,7 @@ export default class TrendingPage extends BaseComponent {
                 onPress={()=>this.showPopover()}
             >
                 <View style={{flexDirection:'row',alignItems:'center'}}>
-                    <Text style={{fontSize:18,color:'white',fontWeight:'400'}}>Language Trend  {this.state.timeSpan.showText}</Text>
+                    <Text style={{fontSize:18,color:'white',fontWeight:'400'}}>Trending  {this.state.timeSpan.showText}</Text>
                     <Image
                         style={{width:14,height:14,marginLeft:6}}
                         source={require('../../../res/images/ic_spinner_triangle.png')}/>

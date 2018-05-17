@@ -107,7 +107,7 @@ export default class NewPage extends Component {
 
         }else{
             Alert.alert(
-                'prompt',
+                '',
                 'Do you want to save the changes? ',
                 [
                   {text:'Cancel',onPress:()=>{
