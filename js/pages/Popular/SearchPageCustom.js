@@ -258,9 +258,9 @@ export default class SearchPage extends Component {
             key={projectModel.item.id}
             projectModel={projectModel}
             onSelect={()=>this.onSelectRepository(projectModel)}
-            onFavorite={(item, isFavorite)=>ActionUtils.onFavorite(this.favoriteDao1, item, isFavorite)}/>
+            onFavorite={(item, isFavorite)=>ActionUtils.onFavorite(this.favoriteDao1, item, isFavorite, 'popular')}/>
     }
-
+ 
      handerLoadMore = () => {
          this.setState({
              page: this.state.page + 1
