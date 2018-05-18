@@ -23,7 +23,7 @@ export default class ViewUtils{
         </TouchableOpacity>
     }
 
-    static createSettingItem(callBack,icon,text,tintColor,expandableIcon){
+    static createSettingItem(callBack,icon,text,tintColor,expandableIcon ,flag = true){
 
         //警告
         let image = null;
@@ -45,9 +45,9 @@ export default class ViewUtils{
                             {image}
                             <Text>{text}</Text>
                         </View>
-                        <Image source={expandableIcon?expandableIcon:require('../../res/images/ic_tiaozhuan.png')}
+                       {flag &&  <Image source={expandableIcon?expandableIcon:require('../../res/images/ic_tiaozhuan.png')}
                                style={[{marginRight:0,height:22,width:22},tintColor]}//要用括号
-                        />
+                        />}
                     </View>
                 </TouchableHighlight>
             </View>

@@ -198,7 +198,7 @@ export default class SearchPage extends Component {
             .then(responseData=>{ 
                 if(!this||!responseData||!responseData.items||responseData.items.length===0){ 
                     this.toast.show(this.inputKey + 'did not find anything',DURATION.LENGTH_LONG); 
-                    this.updateState({isLoading:false,rightButtonText:'so so'}) 
+                    this.updateState({isLoading:false,rightButtonText:'Search'}) 
                 } 
                 this.items = responseData.items;
                 this.getFavoriteKeys();

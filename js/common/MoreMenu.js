@@ -137,9 +137,10 @@ export default class MoreMenu extends Component {
                         return Linking.openURL(url);
                     }
                 }).catch(err=>console.error('An error occurred',err));
-
+                 break;
             case MORE_MENU.Share:
                 break;
+            default : break;    
 
         }
         if (TargetComponent) {

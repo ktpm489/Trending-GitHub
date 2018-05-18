@@ -131,7 +131,7 @@ export default class SearchPage extends Component {
         let backButton = ViewUtils.getLeftButton(()=>this.onBackPress());
         let inputView = <TextInput
             ref = "input"
-            placeholder="Enter word to search"
+            placeholder="Enter word to search repository"
             placeholderTextColor="white"
             style={styles.textInputStyle}
             onChangeText={text=>this.inputKey=text}

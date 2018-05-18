@@ -7,6 +7,9 @@ import {
     Image,
     ScrollView,
     TouchableHighlight,
+    Button,
+    Linking,
+    TouchableOpacity
 } from 'react-native';
 
 import NavigationBar from '../../common/NavigationBar'
@@ -168,7 +171,26 @@ export default class MinePage extends BaseComponent {
                 <View style={GlobalStyles.cellBottomLineStyle}></View>
                 {this.createSettingItem(MORE_MENU.Custom_Theme,require('../../../res/images/ic_view_quilt.png'),'Custom Theme')}
                 <View style={GlobalStyles.cellBottomLineStyle}></View>
+                {/* <TouchableOpacity style={{borderColor :'gray', borderTopWidth :0.3 , borderBottomWidth : 0.3 , backgroundColor : 'white' , flexDirection : 'row', alignItems :'center' , flex: 1}}  onPress={() => {
+                    Linking.openURL(
+                        `https://play.google.com/store/apps/details?id=com.duy.compiler.javanide`
+                    );
+                }}>
+                    <Image source={require('../../../res/images/ic_view_quilt.png')} style= {{ width : 30, height : 30, alignSelf: 'center',}} />
+                    <Text style={[styles.groupTitleStyle]}>Rating App</Text>
+                </TouchableOpacity> */}
+                <View style={GlobalStyles.cellBottomLineStyle}></View>
 
+                {/*=============设置Section=============*/}
+                <Text style={styles.groupTitleStyle}>Rating</Text>
+                {/* TODO change link UID*/}
+                
+                <View style={GlobalStyles.cellBottomLineStyle}></View>
+                {ViewUtil.createSettingItem(() => {
+                    Linking.openURL(
+                        `https://play.google.com/store/apps/details?id=com.duy.compiler.javanide`
+                    );
+                }, require('../../../res/images/ic_view_quilt.png'), 'Rating Application',this.state.theme.styles.tabBarSelectedIcon,null, false)}
                 {/*展示自定义主题页面*/}
                 {this.renderCustomTheme()}
             </ScrollView>

@@ -20,6 +20,7 @@
     "react-native-htmlview": "^0.12.0",
     "react-native-parallax-scroll-view": "^0.21.0",
     "react-native-scrollable-tab-view": "^0.8.0",
+    "react-native-share": "^1.0.27",
     "react-native-sortable-listview": "^0.2.5",
     "react-native-splash-screen": "^3.0.6",
     "react-native-tab-navigator": "^0.3.4"
