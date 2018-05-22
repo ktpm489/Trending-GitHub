@@ -109,10 +109,10 @@ export default class HomePage extends BaseComponent {
                     sceneStyle={{paddingBottom: 0}}
                 >
                     {this._renderTab(PopularPage, FLAG_TAB.flag_popularTab, 'Hot', require('../../../res/images/ic_polular.png'))}
-                    {this._renderTab(TrendingPage, FLAG_TAB.flag_trendingTab, 'Trend', require('../../../res/images/ic_trending.png'))}
-                    {this._renderTab(SearchPage, FLAG_TAB.flag_searchTab, 'Search', require('../../../res/images/ic_trending.png'))}
-                    {this._renderTab(FavoritePage, FLAG_TAB.flag_favoriteTab, 'Collection', require('../../../res/images/ic_favorite.png'))}
-                    {this._renderTab(MinePage, FLAG_TAB.flag_myTab, 'Settings', require('../../../res/images/ic_my.png'))}
+                    {this._renderTab(TrendingPage, FLAG_TAB.flag_trendingTab, 'Trend', require('../../../res/images/trending.png'))}
+                    {this._renderTab(SearchPage, FLAG_TAB.flag_searchTab, 'Search', require('../../../res/images/searchNew.png'))}
+                    {this._renderTab(FavoritePage, FLAG_TAB.flag_favoriteTab, 'Collection', require('../../../res/images/rating.png'))}
+                    {this._renderTab(MinePage, FLAG_TAB.flag_myTab, 'Settings', require('../../../res/images/settingsNew.png'))}
                 </TabNavigator>
             </View>
         )

@@ -188,9 +188,9 @@ export default class MinePage extends BaseComponent {
                 <View style={GlobalStyles.cellBottomLineStyle}></View>
                 {ViewUtil.createSettingItem(() => {
                     Linking.openURL(
-                        `https://play.google.com/store/apps/details?id=com.duy.compiler.javanide`
+                        `https://play.google.com/store/apps/details?id=com.trendinggithub`
                     );
-                }, require('../../../res/images/ic_view_quilt.png'), 'Rating Application',this.state.theme.styles.tabBarSelectedIcon,null, false)}
+                }, require('../../../res/images/rating.png'), 'Rating Application',this.state.theme.styles.tabBarSelectedIcon,null, false)}
                 {/*展示自定义主题页面*/}
                 {this.renderCustomTheme()}
             </ScrollView>

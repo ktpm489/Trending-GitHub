@@ -45,7 +45,7 @@ export default class WelcomePage extends Component {
         return (
             <View style={styles.container}>
             {/**TODO : change image background*/}
-                <Image style={{ flex: 1, width: null }} resizeMode='repeat' source={require('../../../res/images/ic_polular.png')}/>
+                <Image style={{ flex: 1, width: null }} resizeMode='contain' source={require('../../../res/images/background1.png')}/>
             </View>
         );
     }
