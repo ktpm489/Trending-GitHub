@@ -38,8 +38,8 @@ const StatusBarShape = {
 
 export default class NavigationBar extends Component {
     static propTypes = {
-        style: View.propTypes.style,
-        titleLayoutStyle:View.propTypes.style,
+       // style: View.propTypes.style,
+        // titleLayoutStyle:View.propTypes.style,
         navigator: PropTypes.object,
         leftButtonTitle: PropTypes.string,
         popEnabled: PropTypes.bool,
